@@ -134,7 +134,7 @@ class AFX_Track_Exporter:
         n_format = "{0:.3f}"
         for corner in range(4):
 
-            data = data + AFXtx.write_afx_cp_keyframe_header(data,4,AFXtx.strings["corner_names"][corner])
+            data = AFXtx.write_afx_cp_keyframe_header(data,4,AFXtx.strings["corner_names"][corner])
 
             for marker in range(len(plane_track.markers)):
                 frame = plane_track.markers[marker].frame
@@ -216,13 +216,13 @@ def init_file():
     data = ""
     #path = AFXtx.getFilePath()
     #file=open(path+"plane_tracks2.txt","w")    
-    data = data + AFXtx.write_afx_keyframe_header(data,0)
+    data = AFXtx.write_afx_keyframe_header(data,0)
     #return file
     return data
 
 def finalize_file(data):
     #print("FINALIZE DATA: ", data)
-    data = data + AFXtx.write_afx_keyframe_header(data,6)
+    data = AFXtx.write_afx_keyframe_header(data,6)
     return data
     #file.close()
     
@@ -232,9 +232,9 @@ def export_track(context):
     active_track = clip.tracking.tracks.active
     data = init_file()
     
-    data = data + AFXtx.write_afx_keyframe_header(data,1)
+    data = AFXtx.write_afx_keyframe_header(data,1)
     
-    data = data + AFXtx.write_pos_from_single_track(data,active_track)
+    data = AFXtx.write_pos_from_single_track(data,active_track)
     
     data = finalize_file(data)
     
@@ -292,3 +292,4 @@ def unregister():
 
 if __name__ == "__main__":
     register()
+
