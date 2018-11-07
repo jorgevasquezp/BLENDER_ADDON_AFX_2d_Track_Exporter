@@ -2,7 +2,7 @@ bl_info = {
     "name": "After Effects Track Exporter",
     "author": "Jorge Vasquez",
     "version": (1, 0),
-    "blender": (2, 65, 0),
+    "blender": (2, 80, 0),
     "location": "Clip Editor > Tools",
     "description": "Export track, and plane track information to Adobe After Effects",
     "warning": "",
